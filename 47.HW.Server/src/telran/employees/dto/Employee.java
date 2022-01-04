@@ -85,6 +85,28 @@ public class Employee implements Serializable
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
+		// can be simplified to:
+		/*
+		i suggest changing this code:	
+
+		Employee other = (Employee) obj;
+		if (company == null)
+		{
+			if (other.company != null)
+				return false;
+		} else if (!company.equals(other.company))
+			return false;
+
+		to:
+	
+		if (!Objects.equals(this.getCompany(), other.getCompany())){
+			return false;
+		} 
+
+		1)casting is removed, because the previous if statement checks getClass of the object -> casting is rudementary
+		2)Objects.equals can compare two values with possible nulls -> simplifies if statement 
+		3) I generally recomment to use this.getSomething() -> improves readability
+		*/
 		Employee other = (Employee) obj;
 		if (company == null)
 		{
@@ -94,6 +116,7 @@ public class Employee implements Serializable
 			return false;
 		if (id != other.id)
 			return false;
+		// check the comment above. the same applies here
 		if (name == null)
 		{
 			if (other.name != null)

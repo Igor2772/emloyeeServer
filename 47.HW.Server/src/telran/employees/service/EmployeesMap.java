@@ -89,6 +89,9 @@ public class EmployeesMap implements IEmployees
 	@Override
 	public int getAvgSalary()
 	{
+		// 1) make avgSalary int, so any returned value will be forced to be int
+		// 2) averagingInt should already return int
+		// 3) check docs for NaN values -> https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#averagingDouble-java.util.function.ToDoubleFunction-
 		double avgSalary = employees.values().stream()
 				.collect(Collectors.averagingInt(e -> e.getSalary()));
 		return (int) avgSalary;
@@ -99,6 +102,7 @@ public class EmployeesMap implements IEmployees
 	{
 		return companies.entrySet().stream().map(e ->
 		{
+			// averagingInt will return int, but you are storing it in a double.
 			double avgSalary = e.getValue().stream().collect(Collectors.
 					averagingInt(empl -> empl.getSalary()));
 			return new CompanySalary(e.getKey(), avgSalary);

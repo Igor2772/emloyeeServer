@@ -19,6 +19,9 @@ public class EmployeesTcpProxy extends TcpClientJava implements IEmployees
 	@Override
 	public boolean hireEmployee(Employee emp) 
 	{
+		// should the request be validated here?
+		// what if the request returns incorrect data? TCP/UDP connection issue?
+		// the same applies to other methods 
 		return sendRequest("hireEmployee", emp);
 	}
 

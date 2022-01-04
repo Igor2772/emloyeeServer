@@ -5,11 +5,18 @@ import telran.employees.service.IEmployees;
 import telran.view.InputOutput;
 import telran.view.Item;
 
+/*
+I generally like the idea of separating base command that will be inherited later on.
+It's a good pattern to practices. Perhaps you could also define interface for a base command and intefrace for inherited commands.
+Just to think about.
+But generally, good work
+*/
 public abstract class EmployeesItem implements Item
 {
 	protected InputOutput inputOutput;
 	protected IEmployees employees;
 	
+	// feels like this is Employee class responsibility to know it's min and max salary
 	protected static final int MIN_SALARY = 6000;
 	protected static final int MAX_SALARY = 60000;
 		

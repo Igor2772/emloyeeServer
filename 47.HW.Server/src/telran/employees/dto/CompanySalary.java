@@ -64,6 +64,7 @@ public class CompanySalary implements Serializable
 		CompanySalary other = (CompanySalary) obj;
 		if (Double.doubleToLongBits(avgSalary) != Double.doubleToLongBits(other.avgSalary))
 			return false;
+		// check comment on line 88 in Employee.java
 		if (companyName == null)
 		{
 			if (other.companyName != null)
