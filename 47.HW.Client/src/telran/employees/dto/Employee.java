@@ -2,6 +2,9 @@ package telran.employees.dto;
 
 import java.io.Serializable;
 
+// perhaps it's a good idea to separate model class lik Employee and Company salary as java library?
+// this way you can avoid code duplication and not be afraid to cause incosistency inside your application
+// https://docs.oracle.com/middleware/1213/wls/WLPRG/libraries.htm#WLPRG333
 @SuppressWarnings("serial")
 public class Employee implements Serializable
 {
